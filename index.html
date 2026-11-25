@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voltron als Company – Algerian Font</title>
+  <!-- Google Fonts: Algerian-like alternative (Alfa Slab One) + fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons (optional, but adds visual style) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & GLOBAL ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f7fc;
+      color: #1a2639;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Algerian-inspired display font (Alfa Slab One is close in weight / style) */
+    .algerian,
+    h1, h2, h3, .logo, .nav-link, .page-title {
+      font-family: 'Alfa Slab One', 'Algerian', 'Impact', serif;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    /* For true Algerian feel, we add a subtle text-shadow / outline */
+    h1, h2, h3, .logo {
+      text-shadow: 2px 2px 0 rgba(0, 20, 60, 0.1);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* ===== HEADER & NAVIGATION ===== */
+    header {
+      background: #0b1d31;
+      color: white;
+      padding: 15px 0;
+      border-bottom: 5px solid #e6b91e;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 2.2rem;
+      color: #e6b91e;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo i {
+      font-size: 2rem;
+      color: #e6b91e;
+    }
+
+    .logo span {
+      color: white;
+      font-size: 1.8rem;
+    }
+
+    /* Navigation – 6 pages */
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 10px;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 8px 14px;
+      color: white;
+      text-decoration: none;
+      font-family: 'Alfa Slab One', 'Algerian', 'Impact', serif;
+      font-size: 1rem;
+      border-radius: 30px;
+      transition: 0.2s;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid transparent;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: #e6b91e;
+      color: #0b1d31;
+      border-color: #e6b91e;
+      transform: scale(1.02);
+    }
+
+    /* ===== MAIN & PAGE SYSTEM ===== */
+    main {
+      flex: 1;
+      padding: 40px 0;
+    }
+
+    /* every page is a section, hidden by default */
+    .page {
+      display: none;
+      animation: fade 0.3s ease-in-out;
+    }
+
+    .page.active-page {
+      display: block;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    .page-title {
+      font-size: 2.6rem;
+      color: #0b1d31;
+      margin-bottom: 25px;
+      border-left: 12px solid #e6b91e;
+      padding-left: 20px;
+      line-height: 1.2;
+    }
+
+    /* hero / content cards */
+    .hero-card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .img-placeholder {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(145deg, #d9e2ec, #bcccdb);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2a3f5e;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 3px dashed #e6b91e;
+      transition: 0.2s;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* realistic image placeholders – using generated SVG/picsum via background */
+    .img-1 { background-image: url('https://picsum.photos/id/1040/600/400'); background-size: cover; }
+    .img-2 { background-image: url('https://picsum.photos/id/106/600/400'); background-size: cover; }
+    .img-3 { background-image: url('https://picsum.photos/id/180/600/400'); background-size: cover; }
+    .img-4 { background-image: url('https://picsum.photos/id/26/600/400'); background-size: cover; }
+    .img-5 { background-image: url('https://picsum.photos/id/20/600/400'); background-size: cover; }
+    .img-6 { background-image: url('https://picsum.photos/id/42/600/400'); background-size: cover; }
+    .img-7 { background-image: url('https://picsum.photos/id/60/600/400'); background-size: cover; }
+    .img-8 { background-image: url('https://picsum.photos/id/96/600/400'); background-size: cover; }
+    .img-9 { background-image: url('https://picsum.photos/id/111/600/400'); background-size: cover; }
+
+    .btn {
+      display: inline-block;
+      background: #0b1d31;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: 'Alfa Slab One', 'Algerian', 'Impact', serif;
+      letter-spacing: 0.5px;
+      border: 2px solid #e6b91e;
+      transition: 0.2s;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #e6b91e;
+      color: #0b1d31;
+      border-color: #0b1d31;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #0b1d31;
+      border: 2px solid #0b1d31;
+    }
+
+    .btn-outline:hover {
+      background: #0b1d31;
+      color: white;
+    }
+
+    /* footer */
+    footer {
+      background: #0b1d31;
+      color: #ccd9e9;
+      padding: 25px 0;
+      text-align: center;
+      border-top: 4px solid #e6b91e;
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+
+    footer i {
+      color: #e6b91e;
+      margin: 0 5px;
+    }
+
+    /* responsiveness */
+    @media (max-width: 850px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .header-inner {
+        flex-direction: column;
+        gap: 12px;
+      }
+      nav ul {
+        justify-content: center;
+      }
+      .page-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      nav ul li a {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+      }
+      .logo {
+        font-size: 1.8rem;
+      }
+      .logo span {
+        font-size: 1.4rem;
+      }
+    }
+
+    /* small utility */
+    .text-center { text-align: center; }
+    .mt-3 { margin-top: 20px; }
+    .mb-2 { margin-bottom: 15px; }
+    .flex-center { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo" data-page="home">
+      <i class="fas fa-bolt"></i>
+      <span>VOLTRON ALS</span>
+    </a>
+    <nav>
+      <ul id="main-nav">
+        <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+        <li><a href="#" class="nav-link" data-page="about">About</a></li>
+        <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+        <li><a href="#" class="nav-link" data-page="projects">Projects</a></li>
+        <li><a href="#" class="nav-link" data-page="team">Team</a></li>
+        <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ========== PAGE 1 : HOME ========== -->
+  <section id="home" class="page active-page">
+    <h1 class="page-title">⚡ Powering the Future</h1>
+    <div class="hero-card grid-2">
+      <div>
+        <h2 style="font-size: 2rem; color:#0b1d31;">Welcome to Voltron</h2>
+        <p style="margin: 15px 0; font-size: 1.1rem;">Voltron Company is a leader in advanced energy solutions and industrial innovation. With the spirit of Algerian strength and resilience, we build the infrastructure of tomorrow.</p>
+        <p>From renewable energy to smart grids, our bold approach sets new standards.</p>
+        <a href="#" class="btn" data-page="services">Explore Services</a>
+      </div>
+      <div class="img-placeholder img-1" style="background-image: url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&auto=format'); background-size: cover; background-position: center;"></div>
+    </div>
+    <div class="grid-3">
+      <div class="hero-card text-center">
+        <i class="fas fa-solar-panel" style="font-size: 2.5rem; color:#e6b91e;"></i>
+        <h3>Solar & Wind</h3>
+        <p>Harnessing the desert sun and coastal winds.</p>
+      </div>
+      <div class="hero-card text-center">
+        <i class="fas fa-microchip" style="font-size: 2.5rem; color:#e6b91e;"></i>
+        <h3>Smart Grids</h3>
+        <p>Intelligent distribution for modern cities.</p>
+      </div>
+      <div class="hero-card text-center">
+        <i class="fas fa-hard-hat" style="font-size: 2.5rem; color:#e6b91e;"></i>
+        <h3>Industrial</h3>
+        <p>Heavy-duty engineering with precision.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PAGE 2 : ABOUT ========== -->
+  <section id="about" class="page">
+    <h1 class="page-title">Algerian Roots, Global Vision</h1>
+    <div class="hero-card grid-2">
+      <div class="img-placeholder img-2" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format'); background-size: cover;"></div>
+      <div>
+        <h2>Our Story</h2>
+        <p>Founded in the heart of Algeria, Voltron Company began as a small electrical workshop and grew into a multinational energy enterprise. The name "Voltron" symbolizes the fusion of power and unity — just like the diverse regions of Algeria.</p>
+        <p>Our corporate identity is inspired by the bold strokes of the Algerian font: strong, clear, and unforgettable.</p>
+        <a href="#" class="btn btn-outline" data-page="projects">See our projects</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Our Values</h3>
+      <div class="grid-3 mt-3">
+        <div><i class="fas fa-bolt" style="color:#e6b91e;"></i> <strong>Power</strong> – reliable energy for all.</div>
+        <div><i class="fas fa-handshake" style="color:#e6b91e;"></i> <strong>Integrity</strong> – transparent partnerships.</div>
+        <div><i class="fas fa-globe-africa" style="color:#e6b91e;"></i> <strong>Algerian Pride</strong> – global quality, local soul.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PAGE 3 : SERVICES ========== -->
+  <section id="services" class="page">
+    <h1 class="page-title">Our Services</h1>
+    <div class="grid-2">
+      <div class="hero-card">
+        <i class="fas fa-sun" style="font-size: 2rem; color:#e6b91e;"></i>
+        <h3>Renewable Energy</h3>
+        <p>Solar farms, wind turbines, and hybrid microgrids designed for desert and coastal climates.</p>
+        <div class="img-placeholder img-3 mt-3" style="height: 120px; background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&auto=format'); background-size: cover;"></div>
+      </div>
+      <div class="hero-card">
+        <i class="fas fa-battery-full" style="font-size: 2rem; color:#e6b91e;"></i>
+        <h3>Energy Storage</h3>
+        <p>Advanced battery systems and flywheel storage for industrial and grid-scale applications.</p>
+        <div class="img-placeholder img-4 mt-3" style="height: 120px; background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&auto=format'); background-size: cover;"></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <i class="fas fa-network-wired" style="font-size: 2rem; color:#e6b91e;"></i>
+      <h3>Smart Grid & Automation</h3>
+      <p>SCADA systems, IoT monitoring, and AI-driven load forecasting for modern utilities.</p>
+      <div class="img-placeholder img-5 mt-3" style="height: 140px; background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format'); background-size: cover;"></div>
+    </div>
+  </section>
+
+  <!-- ========== PAGE 4 : PROJECTS ========== -->
+  <section id="projects" class="page">
+    <h1 class="page-title">Featured Projects</h1>
+    <div class="grid-2">
+      <div class="hero-card">
+        <h3>Sahara Solar One</h3>
+        <div class="img-placeholder img-6" style="height: 180px; background-image: url('https://images.unsplash.com/photo-1545209463-e2825498edbf?w=600&auto=format'); background-size: cover;"></div>
+        <p class="mt-3">50 MW photovoltaic plant in the Algerian desert, powering 20,000 homes.</p>
+      </div>
+      <div class="hero-card">
+        <h3>Algiers Smart Grid</h3>
+        <div class="img-placeholder img-7" style="height: 180px; background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&auto=format'); background-size: cover;"></div>
+        <p class="mt-3">City-wide distribution automation and real-time monitoring.</p>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Hassi R'Mel Storage</h3>
+      <div class="img-placeholder img-8" style="height: 160px; background-image: url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&auto=format'); background-size: cover;"></div>
+      <p>20 MWh battery energy storage system stabilizing the southern grid.</p>
+    </div>
+  </section>
+
+  <!-- ========== PAGE 5 : TEAM ========== -->
+  <section id="team" class="page">
+    <h1 class="page-title">Leadership & Experts</h1>
+    <div class="grid-3">
+      <div class="hero-card text-center">
+        <div class="img-placeholder" style="height: 150px; width: 150px; border-radius: 50%; margin: 0 auto; background-image: url('https://randomuser.me/api/portraits/men/32.jpg'); background-size: cover; border: 4px solid #e6b91e;"></div>
+        <h3>Tusemerirwe Alfred</h3>
+        <p>CEO & Founder</p>
+      </div>
+      <div class="hero-card text-center">
+        <div class="img-placeholder" style="height: 150px; width: 150px; border-radius: 50%; margin: 0 auto; background-image: url('https://randomuser.me/api/portraits/women/44.jpg'); background-size: cover; border: 4px solid #e6b91e;"></div>
+        <h3>Kayesu Antonios</h3>
+        <p>CTO</p>
+      </div>
+      <div class="hero-card text-center">
+        <div class="img-placeholder" style="height: 150px; width: 150px; border-radius: 50%; margin: 0 auto; background-image: url('https://randomuser.me/api/portraits/men/75.jpg'); background-size: cover; border: 4px solid #e6b91e;"></div>
+        <h3>Tusiimire Alvin</h3>
+        <p>Head of Engineering</p>
+      </div>
+    </div>
+    <div class="hero-card mt-3">
+      <h3>Join the Voltron Family</h3>
+      <p>We are always looking for passionate engineers and visionaries. 
+CONTACT alfredaraali209@gmail.com / alfredtus209@gmail.com
+</p>
+      <a href="#" class="btn" data-page="contact">Contact HR</a>
+    </div>
+  </section>
+
+  <!-- ========== PAGE 6 : CONTACT ========== -->
+  <section id="contact" class="page">
+    <h1 class="page-title">Get in Touch</h1>
+    <div class="grid-2">
+      <div class="hero-card">
+        <h3>Headquarters</h3>
+        <p><i class="fas fa-map-marker-alt" style="color:#e6b91e;"></i> Zone Industrielle, Rouiba, Algiers, Algeria</p>
+        <p><i class="fas fa-phone-alt" style="color:#e6b91e;"></i> +213 21 85 90 00</p>
+        <p><i class="fas fa-envelope" style="color:#e6b91e;"></i> alfredtus209@gmail.com</p>
+        <div class="img-placeholder img-9 mt-3" style="height: 150px; background-image: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&auto=format'); background-size: cover;"></div>
+      </div>
+      <div class="hero-card">
+        <h3>Send a message</h3>
+        <form onsubmit="event.preventDefault(); alert('Thank you! Voltron als will respond soon.');">
+          <input type="text" placeholder="Your name" style="width:100%; padding:12px; margin-bottom:12px; border:2px solid #d0dbe8; border-radius:12px;">
+          <input type="email" placeholder="Email" style="width:100%; padding:12px; margin-bottom:12px; border:2px solid #d0dbe8; border-radius:12px;">
+          <textarea placeholder="Message" rows="3" style="width:100%; padding:12px; border:2px solid #d0dbe8; border-radius:12px;"></textarea>
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p><i class="fas fa-bolt"></i> VOLTRON COMPANY – Algerian excellence in energy & innovation</p>
+    <p style="font-size:0.8rem; margin-top:10px;">&copy; 2025 Voltron. Designed with Algerian font spirit.</p>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT: 6-page navigation ===== -->
+<script>
+  (function() {
+    const pages = document.querySelectorAll('.page');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const logoLink = document.querySelector('.logo');
+
+    // Function to switch page by ID
+    function showPage(pageId) {
+      // hide all pages
+      pages.forEach(p => p.classList.remove('active-page'));
+      // show selected page
+      const target = document.getElementById(pageId);
+      if (target) target.classList.add('active-page');
+
+      // update active class on nav links
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.dataset.page === pageId) link.classList.add('active');
+      });
+    }
+
+    // Attach click handlers to nav links
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const page = link.dataset.page;
+        if (page) showPage(page);
+      });
+    });
+
+    // Logo click goes home
+    if (logoLink) {
+      logoLink.addEventListener('click', e => {
+        e.preventDefault();
+        showPage('home');
+      });
+    }
+
+    // Also handle any button with data-page attribute (call to action)
+    document.querySelectorAll('[data-page]').forEach(el => {
+      if (el.classList.contains('nav-link') || el.classList.contains('logo')) return; // already handled
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        const page = el.dataset.page;
+        if (page && document.getElementById(page)) showPage(page);
+      });
+    });
+
+    // ensure home is active on load (in case of hash)
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      if (document.getElementById(hash)) showPage(hash);
+    }
+  })();
+</script>
+<!-- Note: images are sourced from Unsplash / randomuser for demo purposes -->
+</body>
+</html>
